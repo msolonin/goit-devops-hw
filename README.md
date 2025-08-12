@@ -1,4 +1,2 @@
-# Lesson 3 HW:
+# Main Repository for all HW in GoIt Devops curse:
 
-Script need sudo to be run.
-it should be started sudo ./install_dev_tools.sh
