@@ -1,0 +1,32 @@
+# Check if S3 bucket exists
+data "aws_s3_bucket" "existing" {
+  bucket = var.bucket_name
+}
+
+# Only create the bucket if it doesn’t exist
+resource "aws_s3_bucket" "terraform_state" {
+  count  = length(try([data.aws_s3_bucket.existing.id], [])) == 0 ? 1 : 0
+  bucket = var.bucket_name
+
+  tags = {
+    Name        = "Terraform State Bucket"
+    Environment = var.env_name
+  }
+}
+
+resource "aws_s3_bucket_versioning" "terraform_state_versioning" {
+  count  = length(aws_s3_bucket.terraform_state) > 0 ? 1 : 0
+  bucket = aws_s3_bucket.terraform_state[0].id
+
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
+resource "aws_s3_bucket_ownership_controls" "terraform_state_ownership" {
+  count  = length(aws_s3_bucket.terraform_state) > 0 ? 1 : 0
+  bucket = aws_s3_bucket.terraform_state[0].id
+  rule {
+    object_ownership = "BucketOwnerEnforced"
+  }
+}
