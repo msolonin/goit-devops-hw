@@ -1,2 +1,23 @@
-# Main Repository for all HW in GoIt Devops curse:
+# Як використовувати даний terraform код:
 
+### 1. Спочатку закоментуемо весь код в файлі backend.tf для зберігання стану тераформ локально
+
+### 2. Виконаемо наступні команди для створення всіх ресурсів котрі нам потрібні
+
+```bash
+terraform init
+terraform plan
+terraform apply
+```
+
+### 3. Розкоменуемо весь код в файлі backend.tf для переносу стану на сервер
+
+```bash
+terraform init -lock=false
+```
+
+### 4. Для видалення ресурсів використовуемо наступну команду:
+
+```bash
+terraform destroy -lock=false
+```
