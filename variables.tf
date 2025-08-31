@@ -1,28 +1,36 @@
-variable "aws_region" {
-  description = "Default Region"
-  default     = "us-east-1"
-}
-
-variable "bucket_name" {
-  description = "Name of the S3 bucket to store Terraform state"
+variable "region" {
+  description = "AWS region for deployment"
   type        = string
-  default     = "devops-tfstate-msolonin"
+  default     = "eu-central-1"
 }
-
-variable "ecr_name" {
-  description = "Name of ecr name"
+variable "cluster_name" {
+  description = "Name of the EKS cluster"
   type        = string
-  default     = "ecr-msolonin-lesson5"
+  default     = "eks-cluster-msolonin"
 }
-
-variable "dynamodb_table" {
-  description = "Name of dynamo db lock table name"
-  type        = string
-  default     = "terraform-locks"
-}
-
 variable "vpc_name" {
-  description = "Name of vpc"
+  default = "vpc-msolonin"
+}
+variable "instance_type" {
+  description = "EC2 instance type for the worker nodes"
   type        = string
-  default     = "lesson-5-vpc"
+  default     = "t3.micro"
+}
+variable "repository_name" {
+  description = "Name of the ECR repository"
+  type        = string
+  default     = "ecr-repo-18062025214500"
+}
+// github credentials
+variable "github_pat" {
+  description = "GitHub Personal Access Token"
+  type        = string
+}
+variable "github_user" {
+  description = "GitHub username"
+  type        = string
+}
+variable "github_repo_url" {
+  description = "GitHub repository name"
+  type        = string
 }

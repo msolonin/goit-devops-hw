@@ -1,22 +1,26 @@
-variable "ecr_name" {
-  description = "Name of repository"
+# Required
+variable "repository_name" {
   type        = string
+  description = "Назва ECR репозиторію (унікальна в акаунті та регіоні)."
 }
-
-variable "force_delete" {
-  description = "bool variable delete or no"
-  type        = bool
-  default     = true
-}
-
+# Optional
 variable "scan_on_push" {
-  description = "bool variable scan or no"
   type        = bool
+  description = "Чи сканувати образи на вразливості одразу після push."
   default     = true
 }
-
 variable "image_tag_mutability" {
-  description = "MUTABLE / IMUTABLE tag"
   type        = string
+  description = "IMMUTABLE заблокує зміну існуючих тегів; MUTABLE дозволяє перезапис."
   default     = "MUTABLE"
+}
+variable "force_delete" {
+  type        = bool
+  description = "Якщо true, видалення репо автоматично видаляє всі образи всередині."
+  default     = true
+}
+variable "repository_policy" {
+  type        = string
+  description = "JSON-політика репозиторію."
+  default     = null
 }
