@@ -9,15 +9,3 @@ terraform init
 terraform plan
 terraform apply
 ```
-
-### 3. Розкоменуемо весь код в файлі backend.tf для переносу стану на сервер
-
-```bash
-terraform init -lock=false
-```
-
-### 4. Для видалення ресурсів використовуемо наступну команду:
-
-```bash
-terraform destroy -lock=false
-```
