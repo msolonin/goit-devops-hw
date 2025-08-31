@@ -26,10 +26,12 @@ output "private_subnets" {
   description = "Список ID приватних підмереж"
   value       = module.vpc.private_subnets
 }
-output "internet_gateway_id" {
-  description = "ID Internet Gateway"
-  value       = module.vpc.internet_gateway_id
-}
+
+# output "internet_gateway_id" {
+#   description = "ID Internet Gateway"
+#   value       = module.vpc.internet_gateway_id
+# }
+
 #output "nat_gateway_id" {
 #  description = "ID NAT Gateway"
 #  value       = module.vpc.nat_gateway_id
