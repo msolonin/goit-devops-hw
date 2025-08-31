@@ -7,7 +7,7 @@ pipelineJob("goit-django-docker") {
             url(${github_repo_url})
             credentials("github-token")
           }
-          branches("*/lesson-9")
+          branches("*/lesson-7")
         }
       }
       scriptPath("Jenkinsfile")
