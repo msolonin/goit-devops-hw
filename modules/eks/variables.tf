@@ -1,10 +1,10 @@
 variable "region" {
   description = "AWS region for deployment"
-  default     = "eu-central-1"
+  default     = "us-east-1"
 }
 variable "cluster_name" {
   description = "Name of the EKS cluster"
-  default     = "example-eks-cluster-alex"
+  default     = "example-eks-cluster-msolonin"
 }
 variable "subnet_ids" {
   description = "List of subnet IDs for the EKS cluster"
@@ -12,7 +12,7 @@ variable "subnet_ids" {
 }
 variable "node_group_name" {
   description = "Name of the node group"
-  default     = "node-group-alex"
+  default     = "node-group-msolonin"
 }
 variable "instance_type" {
   description = "EC2 instance type for the worker nodes"

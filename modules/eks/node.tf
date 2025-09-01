@@ -43,7 +43,7 @@ resource "aws_iam_role_policy_attachment" "ssm_managed_instance_core" {
   role       = aws_iam_role.nodes.name
 }
 resource "aws_iam_policy" "ebs_csi_custom_policy" {
-  name        = "AmazonEBSCSICustomPolicy-alex"
+  name        = "AmazonEBSCSICustomPolicy-msolonin"
   description = "Custom policy for EBS CSI driver"
   policy      = jsonencode({
     Version   = "2012-10-17",
