@@ -1,0 +1,31 @@
+image:
+  repository: 020236748758.dkr.ecr.us-east-1.amazonaws.com/ecr-repo-18062025214500
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 8000
+
+resources:
+requests:
+cpu: 100m
+memory: 256Mi
+limits:
+  cpu: 500m
+  memory: 512Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 6
+  targetCPUUtilizationPercentage: 70
+
+config:
+  # Перенесіть змінні з теми 4 сюди
+  DJANGO_SETTINGS_MODULE: "project.settings"
+  DJANGO_DEBUG: "false"
+  DJANGO_SECRET_KEY: "admin123"
+  ALLOWED_HOSTS: "*"
+  DATABASE_URL: "postgres://lesson7user:admin123@terraform-20250901122652593000000001.cu5ygeiegfw3.us-east-1.rds.amazonaws.com:5432/lesson7db"
