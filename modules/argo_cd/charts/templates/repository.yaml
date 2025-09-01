@@ -13,4 +13,4 @@ stringData:
   insecure: "{{ $.Values.repoConfig.insecure }}"
   enableLfs: "{{ $.Values.repoConfig.enableLfs }}"
 ---
-{{ - end }}
+{{- end }}
