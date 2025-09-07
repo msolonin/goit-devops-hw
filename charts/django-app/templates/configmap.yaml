@@ -7,11 +7,12 @@ metadata:
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 data:
-  SECRET_KEY: {{ .Values.config.SECRET_KEY | quote }}
-  DEBUG: {{ .Values.config.DEBUG | quote }}
-  ALLOWED_HOSTS: {{ .Values.config.ALLOWED_HOSTS | quote }}
+  SECRET_KEY: "django-insecure-u(qc9*j0w=ut5db3f#izfz_8szd7rruds!p8p5hgwz0in=+s7t"
+  DEBUG: "False"
+  ALLOWED_HOSTS: "localhost,.us-east-1.elb.amazonaws.com"
   POSTGRES_DB: {{ .Values.config.POSTGRES_DB | quote }}
   POSTGRES_USER: {{ .Values.config.POSTGRES_USER | quote }}
   POSTGRES_PASSWORD: {{ .Values.config.POSTGRES_PASSWORD | quote }}
   POSTGRES_HOST: {{ .Values.config.POSTGRES_HOST | quote }}
   POSTGRES_PORT: {{ .Values.config.POSTGRES_PORT | quote }}
+
