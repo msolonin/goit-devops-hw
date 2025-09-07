@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}-django
+  name: {{ include "django-app.fullname" . }}-config
 spec:
   replicas: 1
   selector:
@@ -21,4 +21,5 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ include "django-app.fullname" . }}-config
+
 
