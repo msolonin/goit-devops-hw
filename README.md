@@ -1,6 +1,6 @@
 # Як використовувати даний terraform код:
 
-### 1. Піднімаемо всі ресурси такі як eks, vpc, ecr, argo_cd, jenkins
+### 1. Піднімаемо всі ресурси такі як eks, vpc, ecr, argo_cd, jenkins, rds
 
 ```bash
 terraform init
@@ -8,36 +8,15 @@ terraform plan
 terraform apply
 ```
 
-### 2. Заходимо на дженкінс виконуемо джобу або створюемо нову з використанням свог JenkinsFile
+Всі ресурси піднято включно з RDS
 
-Jenkins:
-admin
-admin123
+![apply.png](pics/apply.png)
 
-Argocd:
-admin
+Змінюючи bool use_aurora true/false: в залежності від цього показника буде підняти aurora/postgressql
 
-```bash
-kubectl -n argocd get secret argocd-initial-admin-secret \
-  -o jsonpath="{.data.password}" | base64 -d
-echo
-```
+![rds.png](pics/rds.png)
 
-![jenkins.png](pics/jenkins.png)
-
-Після запуску джоби на ноді береться код з папки django для створення нового контейнеру, контейнер пушиться в ecr, після цього в локальному репозиторії змінюеться тег та пушиться в репозиторій
-
-### 3. Заходимо в argocd якщо дефолтний апп не працюе:
-
-```bash
-kubectl apply -f django-app-argo.yaml
-```
-
-для створення нового апп django-app, котрий буде чекаться з цього ж репозиторію
-
-![argocd.png](pics/argocd.png)
-
-### 5. Знищуемо всі ресурси:
+### 2. Знищуемо всі ресурси:
 
 In root folder:
 
