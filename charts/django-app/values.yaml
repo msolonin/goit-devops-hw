@@ -16,9 +16,6 @@ config:
   POSTGRES_USER: django_user
   POSTGRES_DB: django_db
   POSTGRES_PASSWORD: pass9764gd
-  SECRET_KEY: "django-insecure-u(qc9*j0w=ut5db3f#izfz_8szd7rruds!p8p5hgwz0in=+s7t"
-  DEBUG: "False"
-  ALLOWED_HOSTS: "localhost,.us-east-1.elb.amazonaws.com"
 
 autoscaling:
   enabled: false
