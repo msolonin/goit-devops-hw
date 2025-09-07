@@ -1,14 +1,6 @@
 # Як використовувати даний terraform код:
 
-### 1. Спочатку треба зробити наступні кроки:
-
-а) Знайти в репозиторії всі дописи msolonin та замінити на свої
-
-б) Знайти в репозиторії всі назви бранчів lesson-7 та замінити на свої
-
-в) Також можна змінити регіон але треба бути обережнішим з availability_zones вони повинні бути з того ж регіону
-
-### 2. Виконаемо наступні команди для створення всіх ресурсів котрі нам потрібні
+### 1. Піднімаемо всі ресурси такі як eks, vpc, ecr, argo_cd, jenkins
 
 ```bash
 terraform init
@@ -16,26 +8,7 @@ terraform plan
 terraform apply
 ```
 
-![created.png](pics/created.png)
-
-### 3. Виконаемо наступні команди після створення всіх ресурсів
-
-![resourse.png](pics/resourse.png)
-
-### а) З правильною назвою кластера та регіона(всі створені ресурси у всіх namespace):
-
-```bash
-aws eks update-kubeconfig --name eks-cluster-msolonin --region us-east-1
-```
-
-### б) Подивиться на jenkins та argocd (там також можна буде взяти адреси ресурсів):
-
-```bash
-kubectl get svc -n argocd
-kubectl get svc -n jenkins
-```
-
-### в) Креди до ресурсів:
+### 2. Заходимо на дженкінс виконуемо джобу або створюемо нову з використанням свог JenkinsFile
 
 Jenkins:
 admin
@@ -50,4 +23,24 @@ kubectl -n argocd get secret argocd-initial-admin-secret \
 echo
 ```
 
-![ui_out.png](pics/ui_out.png)
+![jenkins.png](pics/jenkins.png)
+
+Після запуску джоби на ноді береться код з папки django для створення нового контейнеру, контейнер пушиться в ecr, після цього в локальному репозиторії змінюеться тег та пушиться в репозиторій
+
+### 3. Заходимо в argocd якщо дефолтний апп не працюе:
+
+```bash
+kubectl apply -f django-app-argo.yaml
+```
+
+для створення нового апп django-app, котрий буде чекаться з цього ж репозиторію
+
+![argocd.png](pics/argocd.png)
+
+### 5. Знищуемо всі ресурси:
+
+In root folder:
+
+```bash
+terraform destroy
+```
