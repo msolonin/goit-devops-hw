@@ -52,7 +52,7 @@ spec:
         sh '''
           git clone https://$GITHUB_USER:$GITHUB_PAT@github.com/$GITHUB_USER/goit-devops-hw.git
           cd goit-devops-hw
-          git checkout lesson-9
+          git checkout lesson-fp
           cd django
           cp -r . /workspace/
         '''

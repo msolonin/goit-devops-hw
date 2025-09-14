@@ -80,14 +80,14 @@ stage('Update Chart Tag in Git') {
       )]) {
         sh '''
           cd goit-devops-hw
-          git checkout lesson-9
+          git checkout lesson-fp
           cd charts/django-app
           sed -i "s/tag: .*/tag: $IMAGE_TAG/" values.yaml
           git config user.email "$COMMIT_EMAIL"
           git config user.name "$COMMIT_NAME"
           git add values.yaml
           git commit -m "Update image tag to $IMAGE_TAG"
-          git push origin lesson-9
+          git push origin lesson-fp
         '''
       }
     }
