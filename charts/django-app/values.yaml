@@ -1,6 +1,6 @@
 image:
   repository: 020236748758.dkr.ecr.us-east-1.amazonaws.com/ecr-repo-18062025214500
-  tag: v1.0.3
+  tag: v1.0.4
   pullPolicy: IfNotPresent
 
 service:
