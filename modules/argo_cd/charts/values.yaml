@@ -3,7 +3,7 @@ applications:
     namespace: default
     project: default
     source:
-      repoURL: https://github.com/msolonin/goit-devops-hw
+      repoURL: ${github_repo_url}
       path: charts/django-app
       targetRevision: lesson-fp
       helm:
@@ -73,7 +73,7 @@ applications:
     namespace: default
     project: default
     source:
-      repoURL: https://github.com/msolonin/goit-devops-hw
+      repoURL: ${github_repo_url}
       path: charts/secret
       targetRevision: lesson-fp
     destination:
