@@ -4,7 +4,7 @@ metadata:
   name: django-app-monitor
   namespace: monitoring
   labels:
-    release: kube-prometheus-stack
+    release: monitoring
 spec:
   selector:
     matchLabels:
@@ -13,6 +13,6 @@ spec:
     matchNames:
       - default
   endpoints:
-    - port: metrics
-      path: /metrics/
+    - port: metrics # matches the Service port name
+      path: /metrics # ensure this matches the Django Prometheus metrics path
       interval: 15s
