@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: "https://github.com/msolonin/goit-devops-hw"
+    repoURL: ${github_repo_url}
     targetRevision: lesson-fp
     path: charts/django-app # folder containing Chart.yaml
     helm:
