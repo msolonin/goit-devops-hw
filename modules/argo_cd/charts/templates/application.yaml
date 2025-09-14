@@ -8,13 +8,19 @@ spec:
   project: {{ .project }}
   source:
     repoURL: {{ .source.repoURL }}
+    {{- if .source.path }}
     path: {{ .source.path }}
+    {{- end }}
     targetRevision: {{ .source.targetRevision }}
+    {{- if .source.helm }}
     helm:
+      {{- if .source.helm.valueFiles }}
       valueFiles:
       {{- range .source.helm.valueFiles }}
         - {{ . | quote }}
       {{- end }}
+      {{- end }}
+    {{- end }}
   destination:
     server: {{ .destination.server }}
     namespace: {{ .destination.namespace }}
