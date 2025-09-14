@@ -8,11 +8,11 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: example-app
+      app: example-app-django
   namespaceSelector:
     matchNames:
       - default
   endpoints:
     - port: metrics
-      path: /metrics
+      path: /metrics/
       interval: 15s

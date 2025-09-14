@@ -4,11 +4,11 @@ metadata:
   name: django-metrics
   namespace: default
   labels:
-    app: example-app
+    app: example-app-django
 spec:
   selector:
-    app: example-app
+    app: example-app-django
   ports:
     - name: metrics
-      port: 8001
-      targetPort: 8001
+      port: 8000
+      targetPort: 8000

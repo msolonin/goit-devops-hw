@@ -6,6 +6,7 @@ image:
 service:
   type: LoadBalancer
   port: 8000
+  metricsPort: 8001
 
 ingress:
   enabled: false
