@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: "https://github.com/msolonin/goit-devops-hw"
-    targetRevision: lesson-9
+    targetRevision: lesson-fp
     path: charts/django-app # folder containing Chart.yaml
     helm:
       valueFiles:

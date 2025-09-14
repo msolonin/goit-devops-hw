@@ -1,4 +1,9 @@
-# Як використовувати даний terraform код:
+# Фінальний проект
+
+### Технічні вимоги:
+
+Інфраструктура: AWS з використанням Terraform
+Компоненти: VPC, EKS, RDS, ECR, Jenkins, Argo CD, Prometheus, Grafana
 
 ### 1. Піднімаемо всі ресурси такі як eks, vpc, ecr, argo_cd, jenkins
 
