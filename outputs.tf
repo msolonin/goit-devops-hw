@@ -88,3 +88,16 @@ output "argocd_admin_password" {
   description = "Initial admin password"
   value       = module.argo_cd.admin_password
 }
+
+# RDS:
+
+output "rds_connection_info" {
+  value = {
+    host     = module.rds.endpoint
+    port     = module.rds.port
+    db_name  = module.rds.db_name
+    username = module.rds.username
+    password = module.rds.password
+  }
+  sensitive = true
+}
