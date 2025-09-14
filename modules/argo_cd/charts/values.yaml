@@ -3,7 +3,7 @@ applications:
     namespace: default
     project: default
     source:
-      repoURL: ${github_repo_url}
+      repoURL: https://github.com/msolonin/goit-devops-hw
       path: charts/django-app
       targetRevision: lesson-fp
       helm:
@@ -73,8 +73,8 @@ applications:
     namespace: default
     project: default
     source:
-      repoURL: ${github_repo_url}
-      path: manifests/django-db-secret # <--- new folder in your repo
+      repoURL: https://github.com/msolonin/goit-devops-hw
+      path: charts/secret
       targetRevision: lesson-fp
     destination:
       server: https://kubernetes.default.svc
